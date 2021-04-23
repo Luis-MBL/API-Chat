@@ -1,0 +1,8 @@
+{
+  "name": "API-Chat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Luis-MBL/API-Chat",
+  "author": "Luís Miguel Barros Lara <2001lmbl@gmail.com>",
+  "license": "MIT"
+}
