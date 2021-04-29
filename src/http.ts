@@ -21,7 +21,7 @@ const http = createServer(app);
 const io = new Server(http);
 
 io.on('connection', (socket: Socket) => {
-  console.log('Link Start', socket.id);
+  // console.log('Link Start', socket.id);
 });
 
 app.use(express.json());
