@@ -25,10 +25,6 @@ export class CreateConnections1619740361669 implements MigrationInterface {
             type: 'varchar ',
           },
           {
-            name: 'text',
-            type: 'varchar ',
-          },
-          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
