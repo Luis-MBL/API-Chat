@@ -13,6 +13,13 @@ class SettingsController {
       return response.status(404).json({ message: error.message });
     }
   }
+  async findByUsername(request: Request, response: Response) {
+    const { username } = request.params;
+
+    const settingsService = new SettingsService();
+    const setting = await settingsService.findByUsername(username);
+    return response.json(setting);
+  }
 }
 
 export { SettingsController };
