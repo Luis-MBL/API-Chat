@@ -7,6 +7,7 @@ interface IRequest {
   admin_id?: string;
   socket_id: string;
   user_id: string;
+  id?: string;
 }
 
 class ConnectionsService {
@@ -19,14 +20,21 @@ class ConnectionsService {
     admin_id,
     socket_id,
     user_id,
+    id,
   }: IRequest): Promise<Connection> {
     const connection = this.connectionsRepository.create({
+      id,
       admin_id,
       socket_id,
       user_id,
     });
 
     await this.connectionsRepository.save(connection);
+
+    return connection;
+  }
+  async findByUserId(user_id): Promise<Connection | undefined> {
+    const connection = this.connectionsRepository.findOne({ user_id });
 
     return connection;
   }
