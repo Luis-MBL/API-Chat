@@ -20,4 +20,24 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
       }
     }})
   })
+
+  socket.on("client_list_all_messages", (messages)=>{
+    var  templete_client = document.getElementById('message-user-template').innerHTML;
+    var templete_admin = document.getElementById("admin-template").innerHTML;
+
+    messages.forEach(message => {
+      let rendered;
+      if(message.admin_id === null) {
+        rendered = Mustache.render(templete_client, {
+          message: message.text,
+          email
+        })
+      } else {
+        rendered = Mustache.render(templete_admin, {
+          message_admin: message.text,
+        })
+      }
+      document.getElementById("messages").innerHTML += rendered
+    });
+  })
 });
